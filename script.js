@@ -1,12 +1,11 @@
-// Mostra la pagina finale dopo il caricamento
+// Gestione del caricamento e transizione
 window.onload = function () {
     const loadingScreen = document.getElementById('loading-screen');
-    const fadeInContent = document.querySelector('.fade-in');
+    const finalContent = document.getElementById('final-content');
 
-    // Nasconde il caricamento e mostra il contenuto con un delay
+    // Dopo 5 secondi, passa dalla schermata di caricamento alla pagina finale
     setTimeout(() => {
-        loadingScreen.style.display = 'none';
-        fadeInContent.classList.remove('hidden');
-        fadeInContent.style.opacity = '1';
-    }, 5000); // 5 secondi per completare la transizione
+        loadingScreen.style.display = 'none'; // Nasconde la schermata di caricamento
+        finalContent.style.opacity = '1'; // Mostra il contenuto finale con transizione
+    }, 5000); // 5 secondi di caricamento
 };
