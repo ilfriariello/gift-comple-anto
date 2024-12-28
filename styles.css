@@ -73,7 +73,7 @@ body {
 /* Stile per il testo sotto la foto */
 #message {
     margin-top: 20px; /* Distanza dalla foto */
-    font-size: 2rem; /* Aumenta la dimensione del testo */
+    font-size: 3rem; /* Aumenta la dimensione del testo */
     text-align: center;
     text-transform: uppercase; /* Maiuscole */
     font-weight: bold;
