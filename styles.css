@@ -1,100 +1,87 @@
-/* Stile base del corpo */
+/* Impostazioni base per il corpo della pagina */
 body {
     margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    overflow: hidden;
     font-family: Arial, sans-serif;
-    color: #fff;
-}
-
-/* Schermata di caricamento */
-#loading-screen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    background-color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
-    z-index: 10;
+    height: 100vh;
 }
 
-/* Testo "LOADING..." */
-.loader p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+/* Stili per la schermata di caricamento */
+#loading {
+    position: absolute;
     text-align: center;
+    font-size: 2rem;
 }
 
 /* Barra di caricamento */
-.progress-bar {
-    width: 200px;
-    height: 10px;
-    background: #555;
-    border-radius: 5px;
+.loading-bar {
+    margin-top: 20px;
+    width: 50%;
+    height: 20px;
+    background-color: gray;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
 }
 
-.progress {
+.loading-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 0;
     height: 100%;
-    background: #ff0000;
-    border-radius: 5px;
-}
-
-/* Contenuto finale */
-#final-content {
-    width: 100%;
-    height: 100%;
-    background-color: #ff0000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 2s ease-in; /* Transizione di 2 secondi */
-}
-
-/* Stile per la foto */
-#final-content img {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-}
-
-/* Stile per il testo sotto la foto */
-#message {
-    margin-top: 20px; /* Distanza dalla foto */
-    font-size: 3rem; /* Aumenta la dimensione del testo */
-    text-align: center;
-    text-transform: uppercase; /* Maiuscole */
-    font-weight: bold;
-    opacity: 0; /* Inizialmente nascosto */
-    transition: opacity 2s ease-in; /* Transizione */
-}
-
-/* Media query per schermi piccoli (mobile) */
-@media (max-width: 768px) {
-    #message {
-        font-size: 2rem; /* Riduce la dimensione del testo */
-        padding: 0 10px; /* Aggiunge un po' di spazio ai lati */
-    }
-
-    #final-content img {
-        max-width: 90%; /* Adatta la foto alla larghezza del dispositivo */
-    }
+    background-color: green;
+    animation: loading 5s forwards;
 }
 
 /* Animazione della barra di caricamento */
-@keyframes loadingProgress {
-    to {
+@keyframes loading {
+    100% {
         width: 100%;
+    }
+}
+
+/* Schermata rossa con foto e testo */
+#red-screen {
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none; /* Inizialmente nascosta */
+}
+
+/* Stili per l'immagine di Myss Keta */
+#myss-image {
+    width: 50%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* Testo sotto la foto */
+#text-message {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #myss-image {
+        width: 80%;
+    }
+
+    #text-message {
+        font-size: 1rem;
     }
 }
