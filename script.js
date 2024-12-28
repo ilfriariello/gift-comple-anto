@@ -1,27 +1,34 @@
-window.onload = function () {
-    const loadingScreen = document.getElementById('loading-screen');
-    const finalContent = document.getElementById('final-content');
-    const message = document.getElementById('message'); // Seleziona il testo sotto la foto
-    const progress = document.querySelector('.progress'); // Seleziona la barra di progressione
+document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    const finalContent = document.getElementById("final-content");
+    const message = document.getElementById("message");
+    const audio = document.getElementById("background-music");
 
-    // Simuliamo il riempimento della barra di progressione
-    let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval); // Ferma l'intervallo quando la barra raggiunge il 100%
-            setTimeout(() => {
-                // Dopo che la barra è piena, passa alla pagina finale
-                loadingScreen.style.display = 'none'; // Nasconde la schermata di caricamento
-                finalContent.style.opacity = '1'; // Mostra il contenuto finale con transizione
-            }, 100); // Piccola attesa per evitare glitch
-        } else {
-            width++;
-            progress.style.width = width + '%'; // Aumenta la larghezza della barra
-        }
-    }, 50); // Ogni 50 millisecondi la barra aumenta di 1%
+    // Animazione barra di caricamento
+    const progressBar = document.querySelector(".progress");
+    progressBar.style.animation = "loadingProgress 5s linear forwards";
 
-    // Dopo 3 secondi dalla visualizzazione del contenuto, mostra il testo
+    // Dopo 5 secondi mostra il contenuto finale
     setTimeout(() => {
-        message.style.opacity = '1'; // Fa apparire il messaggio
-    }, 8000); // 8 secondi in totale (5 per la barra + 3 per il testo)
-};
+        loadingScreen.style.display = "none";
+        finalContent.style.opacity = "1";
+
+        // Mostra il messaggio dopo 3 secondi
+        setTimeout(() => {
+            message.style.opacity = "1";
+        }, 3000);
+    }, 5000);
+
+    // Riproduzione audio dopo il primo click dell'utente
+    const enableAudio = () => {
+        audio.play().catch((error) => {
+            console.error("Errore durante la riproduzione dell'audio:", error);
+        });
+
+        // Rimuove il listener dopo l'attivazione
+        document.removeEventListener("click", enableAudio);
+    };
+
+    // Aggiunge un listener al primo click per avviare l'audio
+    document.addEventListener("click", enableAudio);
+});
