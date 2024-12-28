@@ -3,11 +3,7 @@ function showRedScreen() {
     // Mostra la seconda schermata (sfondo rosso e foto)
     document.getElementById('red-screen').style.display = 'block';
 
-    // Avvia l'audio solo dopo che la seconda schermata è visibile
-    var audio = document.getElementById('background-music');
-    audio.play();
-    
-    // Mostra il testo dopo qualche secondo (3 secondi)
+    // Mostra il testo dopo un ritardo di 3 secondi
     setTimeout(function() {
         document.getElementById('text-message').style.display = 'block';
     }, 3000); // Testo appare dopo 3 secondi
