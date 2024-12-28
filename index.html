@@ -7,8 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="fade-in">
+    <!-- Schermata iniziale nera con barra di caricamento -->
+    <div id="loading-screen">
+        <div class="loader">
+            <p>LOADING...</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenuto finale: sfondo rosso con la foto -->
+    <div class="fade-in hidden">
         <img src="assets/myss-keta.jpg" alt="Myss Keta">
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
