@@ -1,27 +1,30 @@
-window.onload = function () {
-    const loadingScreen = document.getElementById('loading-screen');
-    const finalContent = document.getElementById('final-content');
-    const message = document.getElementById('message'); // Seleziona il testo sotto la foto
-    const progress = document.querySelector('.progress'); // Seleziona la barra di progressione
+// Funzione che si attiva dopo la transizione (quando la schermata rossa è visibile)
+function showRedScreen() {
+    // Mostra la seconda schermata (sfondo rosso e foto)
+    document.getElementById('red-screen').style.display = 'block';
 
-    // Simuliamo il riempimento della barra di progressione
-    let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval); // Ferma l'intervallo quando la barra raggiunge il 100%
-            setTimeout(() => {
-                // Dopo che la barra è piena, passa alla pagina finale
-                loadingScreen.style.display = 'none'; // Nasconde la schermata di caricamento
-                finalContent.style.opacity = '1'; // Mostra il contenuto finale con transizione
-            }, 100); // Piccola attesa per evitare glitch
-        } else {
-            width++;
-            progress.style.width = width + '%'; // Aumenta la larghezza della barra
-        }
-    }, 50); // Ogni 50 millisecondi la barra aumenta di 1%
+    // Avvia l'audio solo dopo che la seconda schermata è visibile
+    var audio = document.getElementById('background-music');
+    audio.play();
+    
+    // Mostra il testo dopo qualche secondo (3 secondi)
+    setTimeout(function() {
+        document.getElementById('text-message').style.display = 'block';
+    }, 3000); // Testo appare dopo 3 secondi
+}
 
-    // Dopo 3 secondi dalla visualizzazione del contenuto, mostra il testo
-    setTimeout(() => {
-        message.style.opacity = '1'; // Fa apparire il messaggio
-    }, 8000); // 8 secondi in totale (5 per la barra + 3 per il testo)
+// Funzione per la schermata di caricamento nera
+function showLoadingScreen() {
+    // Imposta il colore di sfondo su nero
+    document.body.style.backgroundColor = 'black';
+    // Mostra la barra di caricamento
+    document.getElementById('loading').style.display = 'block';
+
+    // Dopo 5 secondi, mostra la schermata rossa
+    setTimeout(showRedScreen, 5000);
+}
+
+// Esegui la funzione della schermata nera all'avvio della pagina
+window.onload = function() {
+    showLoadingScreen();
 };
