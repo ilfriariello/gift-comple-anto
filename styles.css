@@ -80,6 +80,18 @@ body {
     transition: opacity 2s ease-in; /* Transizione */
 }
 
+/* Media query per schermi piccoli (mobile) */
+@media (max-width: 768px) {
+    #message {
+        font-size: 2rem; /* Riduce la dimensione del testo */
+        padding: 0 10px; /* Aggiunge un po' di spazio ai lati */
+    }
+
+    #final-content img {
+        max-width: 90%; /* Adatta la foto alla larghezza del dispositivo */
+    }
+}
+
 /* Animazione della barra di caricamento */
 @keyframes loadingProgress {
     to {
