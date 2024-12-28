@@ -16,7 +16,7 @@ window.onload = function() {
                 loadingScreen.style.display = 'none'; // Nasconde la schermata di caricamento
                 finalContent.style.opacity = 1; // Mostra il contenuto finale
                 message.style.opacity = 1; // Mostra il messaggio
-            }, 500); // 500 ms di ritardo
+            }, 500); // 500 ms di ritardo per permettere di vedere la fine del caricamento
         }
     }, 30); // Ogni 30 ms aggiorna la barra di caricamento
 
