@@ -45,7 +45,6 @@ body {
     width: 0;
     height: 100%;
     background: #ff0000;
-    animation: loadingProgress 5s linear forwards;
     border-radius: 5px;
 }
 
