@@ -61,10 +61,36 @@ body {
     transition: opacity 2s ease-in; /* Transizione di 2 secondi */
 }
 
+/* Contenitore per la foto e il banner */
+#image-container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Banner che invita a cliccare, centrato sopra la foto */
+#click-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 20;
+}
+
 /* Stile per la foto */
 #final-content img {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
@@ -77,7 +103,7 @@ body {
     text-transform: uppercase; /* Maiuscole */
     font-weight: bold;
     opacity: 0; /* Inizialmente nascosto */
-    transition: opacity 2s ease-in; /* Transizione */
+    transition: opacity 1s ease-in-out; /* Transizione di 1 secondo */
 }
 
 /* Media query per schermi piccoli (mobile) */
@@ -89,6 +115,10 @@ body {
 
     #final-content img {
         max-width: 90%; /* Adatta la foto alla larghezza del dispositivo */
+    }
+
+    #click-banner {
+        font-size: 1.5rem; /* Riduce la dimensione del banner */
     }
 }
 
