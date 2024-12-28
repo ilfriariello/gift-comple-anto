@@ -20,9 +20,7 @@ window.onload = function() {
         }
     }, 30); // Ogni 30 ms aggiorna la barra di caricamento
 
-    // Rimuovi il mute dopo 1 secondo per sbloccare l'audio
-    setTimeout(function() {
-        const audio = document.getElementById('background-music');
-        audio.muted = false; // Disattiva il mute
-    }, 1000); // Dopo 1 secondo
+    // Riproduci subito l'audio (senza mute)
+    const audio = document.getElementById('background-music');
+    audio.play(); // Inizia subito a riprodurre l'audio senza aspettare
 };
