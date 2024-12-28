@@ -8,31 +8,73 @@ body {
     align-items: center;
     background-color: #000;
     overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: #fff;
 }
 
-/* Contenitore dell'animazione */
-.fade-in {
-    background-color: #ff0000; /* Sfondo rosso */
+/* Schermata di caricamento */
+#loading-screen {
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Partenza completamente trasparente */
-    animation: fadeIn 3s ease-in forwards; /* Animazione di 3 secondi */
+    background-color: #000;
+    z-index: 10;
 }
 
-/* Foto di Myss Keta */
+/* Testo "LOADING..." */
+.loader p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Barra di caricamento */
+.progress-bar {
+    width: 200px;
+    height: 10px;
+    background: #555;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: #ff0000;
+    animation: loadingProgress 5s linear forwards;
+    border-radius: 5px;
+}
+
+/* Sfondo rosso con la foto */
+.fade-in {
+    background-color: #ff0000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 5s ease-in; /* Aumenta il tempo di transizione a 5 secondi */
+}
+
+.hidden {
+    display: none;
+}
+
 .fade-in img {
     max-width: 80%;
     max-height: 80%;
-    border-radius: 15px; /* Angoli leggermente arrotondati */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Ombra */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Animazione di sfumatura */
-@keyframes fadeIn {
+/* Animazione della barra di caricamento */
+@keyframes loadingProgress {
     to {
-        opacity: 1;
+        width: 100%;
     }
 }
