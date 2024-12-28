@@ -20,9 +20,9 @@ window.onload = function() {
         }
     }, 30); // Ogni 30 ms aggiorna la barra di caricamento
 
-    // Aggiungi un evento di clic per avviare la musica e rimuovere il mute
+    // Aggiungi un evento di clic per avviare la musica
     document.body.addEventListener('click', function() {
         audio.muted = false; // Rimuove il mute
-        audio.play(); // Inizia subito a riprodurre l'audio
+        audio.play(); // Inizia a riprodurre l'audio
     });
 };
