@@ -1,4 +1,4 @@
-/* Stile base del corpo */
+/* Impostazioni generali del corpo */
 body {
     margin: 0;
     padding: 0;
@@ -57,6 +57,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px; /* Spazio interno per evitare tagli */
+    box-sizing: border-box; /* Include il padding nel calcolo delle dimensioni */
     opacity: 0;
     transition: opacity 2s ease-in; /* Transizione di 2 secondi */
 }
@@ -64,7 +66,7 @@ body {
 /* Stile per la foto */
 #final-content img {
     max-width: 80%;
-    max-height: 80%;
+    max-height: 60%; /* Limita l'altezza dell'immagine */
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
@@ -72,10 +74,13 @@ body {
 /* Stile per il testo sotto la foto */
 #message {
     margin-top: 20px; /* Distanza dalla foto */
-    font-size: 2rem; /* Aumenta la dimensione del testo */
+    font-size: 3rem; /* Aumenta la dimensione del testo */
     text-align: center;
     text-transform: uppercase; /* Maiuscole */
     font-weight: bold;
+    line-height: 1.2; /* Spaziatura tra le righe */
+    overflow-wrap: break-word; /* Interrompi parole lunghe */
+    word-wrap: break-word;
     opacity: 0; /* Inizialmente nascosto */
     transition: opacity 2s ease-in; /* Transizione */
 }
@@ -83,18 +88,12 @@ body {
 /* Media query per schermi piccoli (mobile) */
 @media (max-width: 768px) {
     #message {
-        font-size: 1,5rem; /* Riduce la dimensione del testo */
+        font-size: 2rem; /* Riduce la dimensione del testo */
         padding: 0 10px; /* Aggiunge un po' di spazio ai lati */
     }
 
     #final-content img {
         max-width: 90%; /* Adatta la foto alla larghezza del dispositivo */
-    }
-}
-
-/* Animazione della barra di caricamento */
-@keyframes loadingProgress {
-    to {
-        width: 100%;
+        max-height: 50%; /* Riduce l'altezza dell'immagine sui dispositivi mobili */
     }
 }
