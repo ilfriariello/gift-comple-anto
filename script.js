@@ -1,11 +1,11 @@
 window.onload = function() {
-    // Barra di caricamento
     let progress = document.querySelector('.progress');
     let loadingScreen = document.getElementById('loading-screen');
     let finalContent = document.getElementById('final-content');
     let message = document.getElementById('message');
-
-    // Animazione della barra di caricamento
+    let audio = document.getElementById('background-music');
+    
+    // Barra di caricamento
     let progressWidth = 0;
     let interval = setInterval(function() {
         progressWidth += 1;
@@ -20,7 +20,9 @@ window.onload = function() {
         }
     }, 30); // Ogni 30 ms aggiorna la barra di caricamento
 
-    // Riproduci subito l'audio (senza mute)
-    const audio = document.getElementById('background-music');
-    audio.play(); // Inizia subito a riprodurre l'audio senza aspettare
+    // Aggiungi un evento di clic per avviare la musica e rimuovere il mute
+    document.body.addEventListener('click', function() {
+        audio.muted = false; // Rimuove il mute
+        audio.play(); // Inizia subito a riprodurre l'audio
+    });
 };
